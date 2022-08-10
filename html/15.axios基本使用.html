@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>15.axios基本使用</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- 官网提供的 axios 在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{msg}}
+        <br><button @click="get">GET请求</button>
+        <br><button @click="post">POST请求</button>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                msg: "Hello World"
+            },
+            methods: {
+                get() {
+                    axios.get("http://127.0.0.1:8866/springboot-util/swagger/test?param1=hello&param2=world")
+                        .then(function (response) {
+                            console.log(response);
+                            alert(response);
+                        }, function (err) {
+                            console.log(err);
+                        })
+                },
+                post() {
+                    axios.post("http://127.0.0.1:8866/springboot-util/swagger/test2",
+                        { param1: "java", param2: "mysql" })
+                        .then(function (response) {
+                            console.log(response);
+                            alert(response);
+                        }, function (err) {
+                            console.log(err);
+                        })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <title>15.axios基本使用</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- 官网提供的 axios 在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="city" @keyup.enter="searchWeather(city)"><button
+            @click="searchWeather(city)">天气查询</button>
+    </div>
+     <!-- 自定义js -->
+     <script src="../js/weather.js"></script>
+</body>
+
+</html>

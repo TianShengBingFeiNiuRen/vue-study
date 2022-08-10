@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <title>9.v-bind指令</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        .active {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <img v-bind:src="imgSrc" alt="">
+        <img :src="imgSrc" alt="" :title="imgTitle + '!!'" :class="isActive?'active':''" @click="changeActive">
+        <img :src="imgSrc" alt="" :title="imgTitle + '!!'" :class="{active:isActive}" @click="changeActive">
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            imgSrc: "../img/头像_狗.jpg",
+            imgTitle: "狗头",
+            isActive: false
+        },
+        methods: {
+            changeActive: function () {
+                this.isActive = !this.isActive;
+            }
+        }
+    })
+</script>
+
+</html>

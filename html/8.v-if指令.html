@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title>8.v-if指令</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="changeShow">切换状态</button>
+        <br>
+        <h2 v-if="isShow">
+            {{value}}
+        </h2>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            value: "Hello World!!",
+            isShow: false
+        },
+        methods: {
+            changeShow: function () {
+                this.isShow = !this.isShow;
+            }
+        }
+    })
+</script>
+
+</html>

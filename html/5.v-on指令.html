@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>5.v-on指令</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="v-on指令" v-on:click="doIt">
+        <input type="button" value="v-on简写" @click="doIt">
+        <input type="button" value="双击事件" @dblclick="doIt">
+        <h2 @click="show">
+            {{value}}
+        </h2>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                value: "前端！！"
+            },
+            methods: {
+                doIt: function () {
+                    alert("做It");
+                },
+                show: function () {
+                    this.value += "Vue!!";
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

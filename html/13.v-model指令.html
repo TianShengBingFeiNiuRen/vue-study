@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>13.v-model指令</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="reset">重置</button>
+        <input type="text" v-model="value" @keyup.enter="alert">
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                value: ""
+            },
+            methods: {
+                alert() {
+                    alert(this.value);
+                },
+                reset() {
+                    this.value = "";
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

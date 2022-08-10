@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <title>11.v-for指令</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in arr">
+                {{index+1}}
+                <p>
+                    {{item.key}} >> {{item.value}}
+                </p>
+            </li>
+        </ul>
+        <h2 v-for="(item,index) in arr">
+            {{index+1}}. {{item.key}} >> {{item.value}}
+        </h2>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                arr: [
+                    { key: "Vue", value: "前端" },
+                    { key: "Java", value: "后端" },
+                    { key: "Hello", value: "World" }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>7.v-show指令</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="changeShow">{{anniuStatus}}</button>
+        <br>
+        <img src="../img/头像_狗.jpg" alt="" v-show="isShow">
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                anniuStatus: "切换状态"
+            },
+            methods: {
+                changeShow: function () {
+                    this.isShow = !this.isShow;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

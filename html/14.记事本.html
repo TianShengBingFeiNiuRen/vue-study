@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <title>14.记事本</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>记事本</h2>
+        <input type="text" v-model="value" @keyup.enter="add()">
+        <ul>
+            <li v-for="(item,index) in jishiben">
+                <span @mouseover="xMouseover" @mouseout="xMouseout">
+                    {{index+1}}.{{item}}
+                    <button @click="remove(index)" v-show="xShow">x</button>
+                </span>
+            </li>
+        </ul>
+        <h4 v-show="jishiben.length!=0">{{jishiben.length}}件事.</h4>
+        <button @click="clear">clear</button>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                value: "timi",
+                jishiben: ["Vue", "Java"],
+                xShow: false
+            },
+            methods: {
+                xMouseover() {
+                    this.xShow = true;
+                },
+                xMouseout() {
+                    this.xShow = false;
+                },
+                clear() {
+                    this.jishiben = [];
+                },
+                add() {
+                    this.jishiben.push(this.value);
+                },
+                remove(index) {
+                    this.jishiben.splice(index, 1);
+                    this.xShow = false;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

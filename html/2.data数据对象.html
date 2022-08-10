@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>2.data数据对象</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <h2>
+            {{object1.key}} {{object1.value}}
+        </h2>
+        <ul>
+            <li>
+                {{arr1[0]}}
+            </li>
+            <li>
+                {{arr1[1]}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "Hello World!!",
+                object1: {
+                    key: "Vue",
+                    value: "前端"
+                },
+                arr1: ["前端", "Vue", "后端", "Java"]
+            }
+        })
+    </script>
+</body>
+
+</html>
