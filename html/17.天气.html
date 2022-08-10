@@ -12,9 +12,20 @@
     <div id="app">
         <input type="text" v-model="city" @keyup.enter="searchWeather(city)"><button
             @click="searchWeather(city)">天气查询</button>
+        <br>
+        <!-- 热门城市<div v-for="item in hotCities"><span @click="changeCity(item)">{{item}}</span>&nbsp;</div> -->
+        热门城市：<span v-for="item in hotCities">
+            <a href="javascript:;" @click="changeCity(item)">{{item}}</a> &nbsp;
+        </span>
+        <ul>
+            <li v-for="item in weatherList">
+                {{item.date}} &nbsp;{{item.type}} &nbsp;{{item.fengxiang}} &nbsp;{{item.fengli}} &nbsp;{{item.high}}
+                &nbsp;{{item.low}}
+            </li>
+        </ul>
     </div>
-     <!-- 自定义js -->
-     <script src="../js/weather.js"></script>
+    <!-- 自定义js -->
+    <script src="../js/weather.js"></script>
 </body>
 
 </html>
